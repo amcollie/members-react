@@ -4,6 +4,8 @@
   "description": "Manager members registration",
   "main": "index.js",
   "scripts": {
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "client": "yarn --cwd client start",
     "server": "nodemon server"
   },
   "repository": "https://github.com/amcollie/members-react-app.git",
