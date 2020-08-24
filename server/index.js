@@ -9,16 +9,21 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-app.use('/members', require('./api/members'));
-
 if (ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
     app.use((req, res) => {
         res.sendfile(path.join(__dirname, '../client/build/index.html'));
     });
 }
-app.get('/', (req, res) => {
+
+app.use('/members', require('./api/members'));
+
+app.get('/members', (req, res) => {
     res.status(200).json('Welcome to Members API');
+});
+
+app.get("*", (req, res) => {
+    res.sendfile(path.join(__dirname, '../client/build/index.html'));
 });
 
 app.listen(PORT, () => {
