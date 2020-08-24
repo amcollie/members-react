@@ -8,7 +8,7 @@
     "client": "yarn --cwd client start",
     "server": "nodemon server",
     "start": "node start",
-    "heroku-postbuild": "cd client && yarn && yarn build"
+    "heroku-postbuild": "cd client && yarn install && yarn build"
   },
   "repository": "https://github.com/amcollie/members-react-app.git",
   "author": "Alexandros Collie",
