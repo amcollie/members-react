@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "concurrently \"yarn server\" \"yarn client\"",
     "client": "yarn --cwd client start",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "start": "node start",
+    "heroku-postbuild": "cd client && yarn && yarn build"
   },
   "repository": "https://github.com/amcollie/members-react-app.git",
   "author": "Alexandros Collie",
