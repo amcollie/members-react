@@ -8,7 +8,7 @@
     "dev": "concurrently \"yarn server\" \"yarn client\"",
     "client": "yarn --cwd client start",
     "server": "nodemon server",
-    "start":  "node index.js",
+    "start":  "node server",
     "heroku-postbuild": "cd client && yarn install && yarn build"
   },
   "repository": "https://github.com/amcollie/members-react-app.git",

@@ -5,16 +5,11 @@ const cors = require('cors');
 const app = express();
 const ENV = process.env.NODE_DEV;
 const PORT = process.env.PORT || 3001;
-
+console.log(ENV);
 app.use(cors());
 app.use(express.json());
 
-if (ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/build')));
-    app.use((req, res) => {
-        res.sendfile(path.join(__dirname, '../client/build/index.html'));
-    });
-}
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.use('/members', require('./api/members'));
 
@@ -23,7 +18,7 @@ app.get('/members', (req, res) => {
 });
 
 app.get("*", (req, res) => {
-    res.sendfile(path.join(__dirname, '../client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 app.listen(PORT, () => {
