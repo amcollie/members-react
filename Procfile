@@ -1,1 +1,1 @@
-web: concurrently "node server" "yarn client"
+web: node server
